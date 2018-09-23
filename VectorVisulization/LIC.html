@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- //Author: Chuankai Zhao, czhao37@illinois.edu, October 16, 2017. --> 
+<style>
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+</style>
+
+<style>
+  #progress_bar {
+    margin: 10px 0;
+    padding: 3px;
+    border: 1px solid #000;
+    font-size: 14px;
+    clear: both;
+    opacity: 0;
+    -moz-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+  }
+  #progress_bar.loading {
+    opacity: 1.0;
+  }
+  #progress_bar .percent {
+    background-color: #99ccff;
+    height: auto;
+    width: 0;
+  }
+</style>
+    
+<script src="LIC.js"></script>
+
+<head>
+<meta charset="utf-8">
+    <title>CS 519: MP2 by Chuankai Zhao, czhao37@illinois.edu. </title>
+</head>
+<body>
+    <form id="input_form">
+    <fieldset>
+        <legend>Line Integral Convolution</legend>
+        LIC line length: <input type="text" id="l_values" value="0.1"><br>
+    </fieldset>
+    <fieldset>
+        <legend>Visualization Parameters</legend>
+        Do you want to color according to magnitude? 
+        <input type="radio" name="color_m" id="color_m_yes" value="yes" > Yes 
+        <input type="radio" name="color_m"  id="color_m_no"  value="no" checked > No <br>
+    </fieldset>
+    <fieldset>
+        <legend>HedgeHog Plot</legend>
+	    <input type="radio" name="hedge" id="hedge_yes" value="yes" > Yes 
+        <input type="radio" name="hedge"  id="hedge_no"  value="no" checked > No <br><br>
+        If yes, please specify your sampling method: <br> <input type="radio" name="sampling" id="uniform" value="uniformgrid"> uniform grid with resolution of <input type="text" id="grid_res" value="10"> <br> <input type="radio" name="sampling" id="random" value="randompts"> random <input type="text" id="num_pts" value="100"> points <br><br>
+        Also, please provide a scaling factor k <input type="text" id="factor" value="0.1">
+    </fieldset>
+    <fieldset>
+        <legend>Data Source</legend>
+        Built-In Functions <br>
+        <input type="radio" name="func" id="gaussian" value="gaussian" checked> Gaussian <br>
+        </fieldset>
+    </form>
+    <button onclick="main()"> Render </button> <br><br>
+    <canvas id="example" width="400" height="400">
+        Please use a browser that supports "canvas"
+    </canvas>
+</body>
+</html>

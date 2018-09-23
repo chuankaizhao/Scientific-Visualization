@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- //Chuankai Zhao, czhao37@illinois.edu, September 28 2017. 
+This code is based on the code developed by Eric Shaffer avaiable on GitHub at https://github.com/shaffer1/UIllinois_SciVis. -->
+<style>
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+</style>
+
+<style>
+  #progress_bar {
+    margin: 10px 0;
+    padding: 3px;
+    border: 1px solid #000;
+    font-size: 14px;
+    clear: both;
+    opacity: 0;
+    -moz-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+  }
+  #progress_bar.loading {
+    opacity: 1.0;
+  }
+  #progress_bar .percent {
+    background-color: #99ccff;
+    height: auto;
+    width: 0;
+  }
+</style>
+    
+<script src="SciVisMath.js"></script>
+<script src="UGrid2D.js"></script>
+<script src="ScalarVis.js"></script>
+
+<head>
+<meta charset="utf-8">
+    <title>CS 519: MP1 by Chuankai Zhao, czhao37@illinois.edu. </title>
+</head>
+<body>
+    <form id="input_form">
+    <fieldset>
+        <legend>Visualization Parameters</legend>
+        Draw Grid <input type="checkbox" id="show_grid"><br>
+        Grid Resolution <input type="text" id="grid_res" value="10"><br>
+        Contour Values <input type="text" id="contour_values" multiple value="0.4 0.5 0.6"><br><br>
+        Color Map 
+        <input type="radio" name="color" id="rainbow" value="rainbow" checked > Rainbow
+        <input type="radio" name="color" id="greyscale" value="greyscale"> Greyscale
+        <input type="radio" name="color" id="diverging" value="diverging"> Diverging <br><br>
+    </fieldset>
+    <fieldset>
+        <legend>Data Source</legend>
+        Built-In Functions <br>
+        <input type="radio" name="func" id="gaussian" value="gaussian" checked> Gaussian <br>
+        <input type="radio" name="func" id="interpolation" value="interpolation"> Bilinear interpolation with  
+        sampling frequency of <input type="text" id="sample_freq" value="10"><br><br>    
+        </fieldset>
+    </form>
+    <button onclick="main()"> Render </button> <br><br>
+    <canvas id="example" width="400" height="400">
+        Please use a browser that supports "canvas"
+    </canvas>
+</body>
+</html>
